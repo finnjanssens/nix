@@ -58,6 +58,7 @@
       ".DS_Store"
       ".direnv"
       ".envrc"
+      ".pre-commit-config.yaml"
     ];
   };
 }

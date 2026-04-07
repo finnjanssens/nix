@@ -8,7 +8,7 @@
 
   # CLI on PATH via Home Manager profile (avoids relying on Homebrew/npm global paths)
   home.packages = [
-    pkgs.nixfmt-tree
+    pkgs.nixfmt
     pkgs.claude-code
     pkgs.glab
     pkgs.awscli2
