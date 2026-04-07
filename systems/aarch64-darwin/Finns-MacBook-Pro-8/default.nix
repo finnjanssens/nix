@@ -19,6 +19,7 @@
     ];
     casks = [
       "aws-vault-binary"
+      "bruno"
       "ghostty"
     ];
   };
