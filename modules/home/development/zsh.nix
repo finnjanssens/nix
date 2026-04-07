@@ -1,11 +1,5 @@
 { config, pkgs, ... }:
 {
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-    defaultOptions = [ "--height=40%" "--layout=reverse" "--border" ];
-  };
-
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
@@ -25,7 +19,7 @@
 
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell";
+      theme = "";
       plugins = [
         "aws"
         "git"
@@ -51,7 +45,9 @@
     ];
 
     initContent = ''
-      export GITLAB_COM_TOKEN=$(security find-generic-password -s "gitlab-pat" -a "$USER" -w 2>/dev/null)
+      export GITLAB_COM_PAT=$(security find-generic-password -s "gitlab-com-pat" -a "$USER" -w 2>/dev/null)
+      export GITLAB_ITP_PAT=$(security find-generic-password -s "gitlab-itp-pat" -a "$USER" -w 2>/dev/null)
+      export CONTEXT7_TOKEN=$(security find-generic-password -s "context7" -a "$USER" -w 2>/dev/null)
     '';
 
     shellAliases = {
