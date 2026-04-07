@@ -1,6 +1,7 @@
 { ... }:
 {
   xdg.configFile."ghostty/config".text = ''
+    font-family = JetBrainsMono Nerd Font
     theme = Blue Matrix
     font-size = 15
 
@@ -9,6 +10,7 @@
     background-blur-radius = 20
 
     mouse-hide-while-typing = true
-    macos-option-as-alt = true
+
+    keybind = super+k=clear_screen
   '';
 }
