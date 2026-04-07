@@ -1,5 +1,15 @@
-{ nixpkgs, nix-darwin, home-manager }:
-{ system, hostname, username, modules, homeModules }:
+{
+  nixpkgs,
+  nix-darwin,
+  home-manager,
+}:
+{
+  system,
+  hostname,
+  username,
+  modules,
+  homeModules,
+}:
 
 nix-darwin.lib.darwinSystem {
   inherit system;

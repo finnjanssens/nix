@@ -24,8 +24,7 @@ let
     vp.nui-nvim
     vp.neo-tree-nvim
   ];
-  luaPath = builtins.concatStringsSep ";"
-    (map (p: "${p}/lua/?.lua;${p}/lua/?/init.lua") myPlugins);
+  luaPath = builtins.concatStringsSep ";" (map (p: "${p}/lua/?.lua;${p}/lua/?/init.lua") myPlugins);
 in
 {
   programs.neovim = {
@@ -35,12 +34,12 @@ in
     viAlias = true;
 
     extraPackages = with pkgs; [
-      nil                          # Nix LSP
-      lua-language-server          # Lua LSP
-      typescript-language-server   # JS/TS LSP
+      nil # Nix LSP
+      lua-language-server # Lua LSP
+      typescript-language-server # JS/TS LSP
       vscode-langservers-extracted # JSON, HTML, CSS LSP
-      ripgrep                      # telescope live grep
-      fd                           # telescope file finding
+      ripgrep # telescope live grep
+      fd # telescope file finding
     ];
 
     plugins = myPlugins;
