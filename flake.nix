@@ -40,6 +40,8 @@
       pre-commit-check = git-hooks.lib.${system}.run {
         src = ./.;
         hooks.nixfmt.enable = true;
+        hooks.detect-private-keys.enable = true;
+        hooks.detect-aws-credentials.enable = true;
       };
     in
     {
