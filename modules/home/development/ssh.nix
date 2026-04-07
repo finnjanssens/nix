@@ -12,7 +12,7 @@
 
       "git.inthepocket.org" = {
         user = "git";
-        identityFile = "~/.ssh/id_rsa_gitlab_itp";
+        identityFile = "~/.ssh/id_ed25519_gitlab_itp";
       };
 
       "github.com" = {
