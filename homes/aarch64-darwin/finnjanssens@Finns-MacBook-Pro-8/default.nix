@@ -8,8 +8,12 @@
 
   # CLI on PATH via Home Manager profile (avoids relying on Homebrew/npm global paths)
   home.packages = [
+    pkgs.nixfmt-tree
     pkgs.claude-code
     pkgs.glab
     pkgs.awscli2
+    pkgs.go
+    pkgs.nodejs
+    pkgs.nerd-fonts.jetbrains-mono
   ];
 }
