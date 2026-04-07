@@ -14,6 +14,7 @@
     pkgs.awscli2
     pkgs.go
     pkgs.nodejs
+    pkgs.delta
     pkgs.nerd-fonts.jetbrains-mono
   ];
 }

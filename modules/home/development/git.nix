@@ -49,6 +49,14 @@
       push.autoSetupRemote = true;
       fetch.prune = true;
       core.autocrlf = "input";
+      core.pager = "delta";
+      interactive.diffFilter = "delta --color-only";
+      delta = {
+        navigate = true;
+        side-by-side = true;
+      };
+      merge.conflictstyle = "diff3";
+      diff.colorMoved = "default";
     };
 
     # Adopt new default (was "openpgp" before home.stateVersion 25.05)
