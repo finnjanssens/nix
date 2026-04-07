@@ -51,6 +51,7 @@
     '';
 
     shellAliases = {
+      cat = "bat";
       drb = "sudo darwin-rebuild switch --flake ~/.config/nix";
       owc = "git aa && git commit --amend --no-edit && git push --force-with-lease";
       tf = "terraform";
