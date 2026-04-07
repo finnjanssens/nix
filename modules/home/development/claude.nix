@@ -71,23 +71,16 @@ let
     };
 
     enabledPlugins = {
-      "daikin@daikin-onecta-ai-tooling-marketplace" = true;
-      "superpowers@claude-plugins-official" = true;
-      "itp-general@inthepocket" = true;
-      "itp-engineering@inthepocket" = true;
       "itp-engineering-backend@inthepocket" = true;
+      "itp-engineering-daikin@inthepocket" = true;
+      "itp-engineering@inthepocket" = true;
+      "itp-general@inthepocket" = true;
       "itp-utils@inthepocket" = true;
       "security-guidance@claude-plugins-official" = true;
-      "slack@claude-plugins-official" = true;
+      "superpowers@claude-plugins-official" = true;
     };
 
     extraKnownMarketplaces = {
-      daikin-onecta-ai-tooling-marketplace = {
-        source = {
-          source = "directory";
-          path = "/Users/finnjanssens/ITP/DAIKIN/cloud-projects/onecta/enabling/daikin-onecta-ai-tooling";
-        };
-      };
       inthepocket = {
         source = {
           source = "git";
