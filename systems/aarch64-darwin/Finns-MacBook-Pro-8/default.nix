@@ -26,5 +26,42 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  system.defaults = {
+    dock = {
+      tilesize = 27;
+      magnification = true;
+      largesize = 85;
+      autohide = false;
+      autohide-time-modifier = 0.15;
+      mru-spaces = false;
+      show-recents = false;
+    };
+
+    finder = {
+      AppleShowAllExtensions = true;
+      ShowStatusBar = true;
+      FXDefaultSearchScope = "SCcf"; # search current folder by default
+    };
+
+    NSGlobalDomain = {
+      AppleInterfaceStyle = "Dark";
+      AppleShowAllExtensions = true;
+      AppleShowScrollBars = "Always";
+      AppleScrollerPagingBehavior = true;
+      "com.apple.trackpad.forceClick" = false;
+    };
+
+    screencapture = {
+      location = "~/Pictures/Screenshots";
+      target = "file";
+    };
+
+    WindowManager = {
+      GloballyEnabled = false;
+      HideDesktop = true;
+      StandardHideDesktopIcons = false;
+    };
+  };
+
   system.stateVersion = 5;
 }
