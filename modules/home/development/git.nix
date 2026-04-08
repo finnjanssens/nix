@@ -66,6 +66,7 @@
       ".direnv"
       ".envrc"
       ".pre-commit-config.yaml"
+      ".claude/settings.local.json"
     ];
   };
 }

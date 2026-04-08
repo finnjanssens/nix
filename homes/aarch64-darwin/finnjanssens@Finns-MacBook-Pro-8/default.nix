@@ -10,6 +10,9 @@
   home.packages = [
     pkgs.nixfmt
     pkgs.claude-code
+    pkgs.colima
+    pkgs.docker-client
+    pkgs.lazydocker
     pkgs.glab
     pkgs.awscli2
     pkgs.go
