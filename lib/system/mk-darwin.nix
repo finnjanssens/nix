@@ -5,7 +5,6 @@
 }:
 {
   system,
-  hostname,
   username,
   modules,
   homeModules,
@@ -22,7 +21,7 @@ nix-darwin.lib.darwinSystem {
       home-manager.backupFileExtension = "backup";
       home-manager.users.${username} = {
         imports = homeModules;
-        manual.manpages.enable = false;
+        manual.manpages.enable = false; # speeds up home-manager builds
       };
     }
   ];

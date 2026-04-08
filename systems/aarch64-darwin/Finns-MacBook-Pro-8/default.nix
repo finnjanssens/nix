@@ -38,7 +38,6 @@
     };
 
     finder = {
-      AppleShowAllExtensions = true;
       ShowStatusBar = true;
       FXDefaultSearchScope = "SCcf"; # search current folder by default
     };

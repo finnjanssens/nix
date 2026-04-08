@@ -52,7 +52,6 @@
 
       darwinConfigurations."Finns-MacBook-Pro-8" = mkDarwin {
         system = "aarch64-darwin";
-        hostname = "Finns-MacBook-Pro-8";
         username = "finnjanssens";
         modules = [ ./systems/aarch64-darwin/Finns-MacBook-Pro-8 ];
         homeModules = [ "${self}/homes/aarch64-darwin/finnjanssens@Finns-MacBook-Pro-8" ];

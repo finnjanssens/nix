@@ -59,7 +59,6 @@
       diff.colorMoved = "default";
     };
 
-    # Adopt new default (was "openpgp" before home.stateVersion 25.05)
     signing.format = null;
 
     ignores = [
