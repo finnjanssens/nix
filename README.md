@@ -4,25 +4,51 @@ Declarative macOS setup using [nix-darwin](https://github.com/LnL7/nix-darwin) a
 
 ## What's managed
 
-- **System** (nix-darwin) -- Homebrew taps/casks/brews, Touch ID sudo, networking
-- **Home** (Home Manager) -- zsh, neovim, git, ghostty, starship, fzf, ssh, Claude Code
-- **Packages** -- nixfmt-tree, claude-code, glab, awscli2, JetBrains Mono Nerd Font, tfenv, aws-vault
+| Component | Type | Description |
+| --- | --- | --- |
+| acli | brew | Atlassian CLI for Jira/Confluence |
+| aws-vault-binary | cask | Securely store and access AWS credentials |
+| awscli2 | package | AWS command line interface |
+| bat | module | Syntax-highlighted cat replacement |
+| bruno | cask | Open source API client |
+| claude-code | package | Anthropic's CLI for Claude |
+| colima | package | Container runtime for macOS (Docker compatible) |
+| delta | package | Syntax-highlighted git diffs |
+| direnv | module | Per-project environment variables and dev shells |
+| docker | package | Docker CLI client |
+| eza | module | Modern ls replacement with git integration |
+| fzf | module | Fuzzy finder for files, history, and tab completion |
+| ghostty | cask | GPU-accelerated terminal emulator |
+| git | module | Version control with delta, aliases, and global ignores |
+| glab | package | GitLab CLI |
+| go | package | Go programming language |
+| lazydocker | package | Terminal UI for Docker container management |
+| neovim | module | Text editor with LSP, Treesitter, and telescope |
+| nerd-fonts-jetbrains-mono | package | JetBrains Mono with Nerd Font icons |
+| nixfmt | package | Official Nix code formatter |
+| nodejs | package | Node.js runtime and npm |
+| ssh | module | SSH client config for GitLab and GitHub |
+| starship | module | Cross-shell prompt with nerd font symbols |
+| tfenv | brew | Terraform version manager |
+| zoxide | module | Smarter cd that learns your habits |
+| zsh | module | Shell with oh-my-zsh, autosuggestions, and fzf-tab |
 
 ## Repo structure
 
 ```
-flake.nix                        # Entry point -- defines all machines
+flake.nix                        # Entry point, defines all machines and dev shell
 lib/system/mk-darwin.nix         # Helper to wire nix-darwin + home-manager
-systems/<arch>/<hostname>/       # Per-machine system config (homebrew, networking)
+systems/<arch>/<hostname>/       # Per-machine system config (homebrew, macOS defaults)
 homes/<arch>/<user>@<hostname>/  # Per-machine home config (packages, imports)
 modules/home/                    # Shared home-manager modules
+.github/workflows/               # CI: flake check, formatting, weekly input updates
 ```
 
 ## Setup on a new machine
 
 ### 1. Install Nix
 
-Install via [Determinate Systems installer](https://github.com/DeterminateSystems/nix-installer) (recommended -- it manages its own daemon):
+Install via [Determinate Systems installer](https://github.com/DeterminateSystems/nix-installer) (recommended, it manages its own daemon):
 
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
@@ -58,7 +84,6 @@ Add the new machine to `flake.nix`:
 ```nix
 darwinConfigurations."<hostname>" = mkDarwin {
   system = "aarch64-darwin";
-  hostname = "<hostname>";
   username = "<username>";
   modules = [ ./systems/aarch64-darwin/<hostname> ];
   homeModules = [ "${self}/homes/aarch64-darwin/<username>@<hostname>" ];
@@ -73,7 +98,19 @@ sudo darwin-rebuild switch --flake .
 
 On subsequent changes, run the same command to apply updates.
 
-### 5. Store secrets in Keychain
+### 5. Enable direnv
+
+```sh
+direnv allow
+```
+
+### 6. Start container runtime
+
+```sh
+colima start
+```
+
+### 7. Store secrets in Keychain
 
 Tokens are stored in macOS Keychain and read by shell config at runtime:
 
@@ -95,7 +132,7 @@ security add-generic-password -a "$USER" -s "context7" -w "$token" -U
 unset token
 ```
 
-### 6. Authenticate glab CLI
+### 8. Authenticate glab CLI
 
 ```sh
 glab auth login --hostname gitlab.com --token "$GITLAB_COM_PAT"
