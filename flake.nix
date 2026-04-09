@@ -18,6 +18,27 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    claude-plugins-official = {
+      url = "github:anthropics/claude-plugins-official";
+      flake = false;
+    };
+    claude-plugin-itp-general = {
+      url = "git+ssh://git@git.inthepocket.org/inthepocket/skills/general.git";
+      flake = false;
+    };
+    claude-plugin-itp-engineering = {
+      url = "git+ssh://git@git.inthepocket.org/inthepocket/skills/engineering/engineering.git";
+      flake = false;
+    };
+    claude-plugin-itp-engineering-backend = {
+      url = "git+ssh://git@git.inthepocket.org/inthepocket/skills/engineering/backend.git";
+      flake = false;
+    };
+    claude-plugin-itp-engineering-daikin = {
+      url = "git+ssh://git@git.inthepocket.org/inthepocket/skills/engineering/daikin.git";
+      flake = false;
+    };
   };
 
   outputs =
@@ -28,7 +49,7 @@
       home-manager,
       git-hooks,
       ...
-    }:
+    }@inputs:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -51,6 +72,7 @@
       };
 
       darwinConfigurations."Finns-MacBook-Pro-8" = mkDarwin {
+        inherit inputs;
         system = "aarch64-darwin";
         username = "finnjanssens";
         modules = [ ./systems/aarch64-darwin/Finns-MacBook-Pro-8 ];

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   statuslineScript = pkgs.writeShellScript "claude-statusline" ''
     input=$(cat)
@@ -62,65 +62,57 @@ let
 
     printf "%b\n" "$line"
   '';
+in
+{
+  programs.claude-code = {
+    enable = true;
 
-  settings = {
-    prefersReducedMotion = true;
-    statusLine = {
-      type = "command";
-      command = "${statuslineScript}";
-    };
+    plugins = [
+      "${inputs.claude-plugins-official}/plugins/security-guidance"
+      "${inputs.claude-plugins-official}/plugins/superpowers"
+      inputs.claude-plugin-itp-general
+      inputs.claude-plugin-itp-engineering
+      inputs.claude-plugin-itp-engineering-backend
+      inputs.claude-plugin-itp-engineering-daikin
+    ];
 
-    enabledPlugins = {
-      "itp-engineering-backend@inthepocket" = true;
-      "itp-engineering-daikin@inthepocket" = true;
-      "itp-engineering@inthepocket" = true;
-      "itp-general@inthepocket" = true;
-      "itp-utils@inthepocket" = true;
-      "security-guidance@claude-plugins-official" = true;
-      "superpowers@claude-plugins-official" = true;
-    };
+    memory.text = ''
+      # Global CLAUDE.md
 
-    extraKnownMarketplaces = {
-      inthepocket = {
-        source = {
-          source = "git";
-          url = "git@git.inthepocket.org:inthepocket/skills/marketplace.git";
-        };
+      ## About me
+
+      - Software engineer at In The Pocket
+      - Working across personal and work projects on macOS (Apple Silicon)
+
+      ## Response style
+
+      - Respond in English
+      - Be detailed and thorough with explanations and context
+
+      ## Workflow preferences
+
+      - Use conventional commits: `feat:`, `fix:`, `chore:`, `refactor:`, `docs:`
+      - Group changes into logical commits (e.g. separate module additions from config tweaks)
+      - Suggest a commit after completing work, but wait for explicit approval before committing
+      - Always verify changes work before suggesting a commit
+
+      ## Communication
+
+      - Avoid using dashes (--) in generated text, use commas or separate sentences instead
+      - Avoid heavy use of emojis in Slack messages
+
+      ## Secrets
+
+      - Never commit tokens or credentials
+      - Use macOS Keychain for secret storage where possible
+    '';
+
+    settings = {
+      prefersReducedMotion = true;
+      statusLine = {
+        type = "command";
+        command = "${statuslineScript}";
       };
     };
   };
-  claudeMd = ''
-    # Global CLAUDE.md
-
-    ## About me
-
-    - Software engineer at In The Pocket
-    - Working across personal and work projects on macOS (Apple Silicon)
-
-    ## Response style
-
-    - Respond in English
-    - Be detailed and thorough with explanations and context
-
-    ## Workflow preferences
-
-    - Use conventional commits: `feat:`, `fix:`, `chore:`, `refactor:`, `docs:`
-    - Group changes into logical commits (e.g. separate module additions from config tweaks)
-    - Suggest a commit after completing work, but wait for explicit approval before committing
-    - Always verify changes work before suggesting a commit
-
-    ## Communication
-
-    - Avoid using dashes (--) in generated text, use commas or separate sentences instead
-    - Avoid heavy use of emojis in Slack messages
-
-    ## Secrets
-
-    - Never commit tokens or credentials
-    - Use macOS Keychain for secret storage where possible
-  '';
-in
-{
-  home.file.".claude/settings.json".text = builtins.toJSON settings;
-  home.file.".claude/CLAUDE.md".text = claudeMd;
 }

@@ -8,6 +8,7 @@
   username,
   modules,
   homeModules,
+  inputs ? { },
 }:
 
 nix-darwin.lib.darwinSystem {
@@ -19,6 +20,7 @@ nix-darwin.lib.darwinSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "backup";
+      home-manager.extraSpecialArgs = { inherit inputs; };
       home-manager.users.${username} = {
         imports = homeModules;
         manual.manpages.enable = false; # speeds up home-manager builds

@@ -1,5 +1,85 @@
 {
   "nodes": {
+    "claude-plugin-itp-engineering": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774968000,
+        "narHash": "sha256-+8C3aBQdY/DUdl74gMomhgWO82vUD7AQ0Fk/fIE2eEE=",
+        "ref": "refs/heads/main",
+        "rev": "8d017496f7c5bc71a2d8f5cfcbb364885c46b477",
+        "revCount": 18,
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/engineering.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/engineering.git"
+      }
+    },
+    "claude-plugin-itp-engineering-backend": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775387210,
+        "narHash": "sha256-is6mttStAmcwQDZg6PdFGPJDcUxjTtsGauO2uoTzID0=",
+        "ref": "refs/heads/main",
+        "rev": "5db5f9bfda116077da97250b3818aff2b18070ca",
+        "revCount": 83,
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/backend.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/backend.git"
+      }
+    },
+    "claude-plugin-itp-engineering-daikin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775658490,
+        "narHash": "sha256-wzeIhak9k8f+hyT4YXIgFx7gFmkA3483lTT3rKBzcCg=",
+        "ref": "refs/heads/main",
+        "rev": "a6595c38cd80c461513308a23899ea3ddf00238e",
+        "revCount": 132,
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/daikin.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/daikin.git"
+      }
+    },
+    "claude-plugin-itp-general": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774443146,
+        "narHash": "sha256-bP2xHwVeAFBxihBbtyCrm88R6Z8XDdpjPg+XUrV/Jo8=",
+        "ref": "refs/heads/main",
+        "rev": "0d91e270bca3ddf715a6fa1e624bc7f55ee869b2",
+        "revCount": 22,
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/general.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/general.git"
+      }
+    },
+    "claude-plugins-official": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775688123,
+        "narHash": "sha256-kIH6mocPgQTAECQBWyQOjM6INFfVVd8iXYW/Us3mFjU=",
+        "owner": "anthropics",
+        "repo": "claude-plugins-official",
+        "rev": "98c01d3fbf621892e437fc64a10d38950690e2c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anthropics",
+        "repo": "claude-plugins-official",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -117,6 +197,11 @@
     },
     "root": {
       "inputs": {
+        "claude-plugin-itp-engineering": "claude-plugin-itp-engineering",
+        "claude-plugin-itp-engineering-backend": "claude-plugin-itp-engineering-backend",
+        "claude-plugin-itp-engineering-daikin": "claude-plugin-itp-engineering-daikin",
+        "claude-plugin-itp-general": "claude-plugin-itp-general",
+        "claude-plugins-official": "claude-plugins-official",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
