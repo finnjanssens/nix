@@ -70,15 +70,32 @@
       # History substring search: bind up/down arrows
       bindkey '^[[A' history-substring-search-up
       bindkey '^[[B' history-substring-search-down
+
+      # Terraform commands with environment-specific var file
+      tfp() { terraform plan -var-file="vars/$1/values.tfvars" "''${@:2}"; }
+      tfa() { terraform apply -var-file="vars/$1/values.tfvars" "''${@:2}"; }
+      tfd() { terraform destroy -var-file="vars/$1/values.tfvars" "''${@:2}"; }
     '';
 
     shellAliases = {
-      cat = "bat";
+      # nix
       drb = "sudo darwin-rebuild switch --flake ~/.config/nix";
-      owc = "git aa && git commit --amend --no-edit && git push --force-with-lease";
-      tf = "terraform";
+
+      # git
       g = "git";
+      owc = "git aa && git commit --amend --no-edit && git push --force-with-lease";
+
+      # standard
+      cat = "bat";
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+
+      # misc
+      tf = "terraform";
       ave = "aws-vault exec";
+      v = "nvim";
+      c = "cursor";
     };
 
     profileExtra = ''
