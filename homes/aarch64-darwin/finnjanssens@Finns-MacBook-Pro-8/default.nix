@@ -13,6 +13,11 @@
     $DRY_RUN_CMD /usr/bin/defaults -currentHost write -globalDomain NSStatusItemSpacing -int 12
   '';
 
+  # Wallpaper
+  home.activation.wallpaper = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD ${pkgs.desktoppr}/bin/desktoppr ${../../../assets/wallpaper.jpg}
+  '';
+
   # CLI on PATH via Home Manager profile (avoids relying on Homebrew/npm global paths)
   home.packages = [
     pkgs.nixfmt
