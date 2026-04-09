@@ -21,6 +21,7 @@
       "aws-vault-binary"
       "bruno"
       "ghostty"
+      "arc"
     ];
   };
 
@@ -28,13 +29,16 @@
 
   system.defaults = {
     dock = {
-      tilesize = 27;
+      tilesize = 24;
       magnification = true;
       largesize = 85;
       autohide = false;
-      autohide-time-modifier = 0.15;
+      autohide-delay = 0.0;
+      autohide-time-modifier = 0.3;
+      mineffect = "scale";
       mru-spaces = false;
       show-recents = false;
+      enable-spring-load-actions-on-all-items = true;
     };
 
     finder = {
@@ -47,6 +51,7 @@
       AppleShowAllExtensions = true;
       AppleShowScrollBars = "Always";
       AppleScrollerPagingBehavior = true;
+      ApplePressAndHoldEnabled = false;
       "com.apple.trackpad.forceClick" = false;
     };
 
