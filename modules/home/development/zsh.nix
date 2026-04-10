@@ -92,6 +92,7 @@
       "...." = "cd ../../..";
 
       # misc
+      cpwd = "pwd | tr -d '\\n' | pbcopy && pwd";
       tf = "terraform";
       ave = "aws-vault exec";
       v = "nvim";
