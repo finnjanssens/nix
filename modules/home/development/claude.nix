@@ -64,6 +64,8 @@ let
   '';
 in
 {
+  imports = [ ./claude-permissions.nix ];
+
   programs.claude-code = {
     enable = true;
 
