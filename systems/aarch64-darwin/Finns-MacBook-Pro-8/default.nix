@@ -22,6 +22,7 @@
       "bruno"
       "ghostty"
       "arc"
+      "obsidian"
     ];
   };
 
