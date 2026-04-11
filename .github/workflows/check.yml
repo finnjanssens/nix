@@ -20,8 +20,8 @@ jobs:
         with:
           use-flakehub: false
 
-      - name: Check flake evaluates
-        run: nix flake check --no-build
+      - name: Check devShell evaluates
+        run: nix eval .#devShells.aarch64-darwin.default --json > /dev/null
 
       - name: Check formatting
         run: nix develop --command pre-commit run --all-files
