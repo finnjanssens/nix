@@ -160,3 +160,27 @@ unset token
 glab auth login --hostname gitlab.com --token "$GITLAB_COM_PAT"
 glab auth login --hostname git.inthepocket.org --token "$GITLAB_ITP_PAT"
 ```
+
+## Updating flake inputs
+
+### Automatic (CI)
+
+A GitHub Actions workflow runs every Monday at 06:00 UTC. It updates the public flake inputs (`nixpkgs`, `nix-darwin`, `home-manager`, `git-hooks`, `claude-plugins-official`) and opens a PR. Private ITP inputs are skipped because the CI runner has no SSH access to `git.inthepocket.org`.
+
+After merging the PR, run `drb` locally to apply the updates.
+
+### Manual (all inputs)
+
+To update all inputs including private ones, run locally:
+
+```sh
+nix flake update
+drb
+```
+
+To update a specific input:
+
+```sh
+nix flake update nixpkgs
+drb
+```
