@@ -7,11 +7,12 @@ Declarative macOS setup using [nix-darwin](https://github.com/LnL7/nix-darwin) a
 | Component | Type | Description |
 | --- | --- | --- |
 | acli | brew | Atlassian CLI for Jira/Confluence |
+| arc | cask | Arc browser |
 | aws-vault-binary | cask | Securely store and access AWS credentials |
 | awscli2 | package | AWS command line interface |
 | bat | module | Syntax-highlighted cat replacement |
 | bruno | cask | Open source API client |
-| claude-code | package | Anthropic's CLI for Claude |
+| claude-code | module | Anthropic's CLI for Claude with permission profiles, plugins, and agents |
 | colima | package | Container runtime for macOS (Docker compatible) |
 | delta | package | Syntax-highlighted git diffs |
 | direnv | module | Per-project environment variables and dev shells |
@@ -27,11 +28,32 @@ Declarative macOS setup using [nix-darwin](https://github.com/LnL7/nix-darwin) a
 | nerd-fonts-jetbrains-mono | package | JetBrains Mono with Nerd Font icons |
 | nixfmt | package | Official Nix code formatter |
 | nodejs | package | Node.js runtime and npm |
+| obsidian | cask | Knowledge base and note-taking |
 | ssh | module | SSH client config for GitLab and GitHub |
 | starship | module | Cross-shell prompt with nerd font symbols |
 | tfenv | brew | Terraform version manager |
 | zoxide | module | Smarter cd that learns your habits |
 | zsh | module | Shell with oh-my-zsh, autosuggestions, and fzf-tab |
+
+## Launchd agents
+
+Scheduled agents that run automatically:
+
+| Agent | Schedule | Description |
+| --- | --- | --- |
+| mr-review-checker | Daily 08:00 | Queries GitLab MRs awaiting review and writes Obsidian checklist |
+| meeting-minutes-processor | Hourly Mon-Fri 07:00-18:00 | Uses Quill MCP to extract meeting notes to Obsidian vault |
+| obsidian-tagger | Daily 21:00 | Tags untagged markdown files in Obsidian vault |
+
+All Claude-based agents run with restricted `--settings` scoped to only the tools and paths they need.
+
+## Claude Code configuration
+
+Claude Code is configured declaratively via `modules/home/development/claude.nix`:
+
+- **Permission profiles** (`claude-permissions.nix`): Tiered allow/ask/deny lists (conservative, standard, autonomous) covering bash commands, MCP tools, and skills
+- **Plugins**: Official Anthropic plugins and ITP engineering plugins (via flake inputs)
+- **Status line**: Custom shell script showing directory, git branch, model, and context remaining
 
 ## Repo structure
 
@@ -39,7 +61,7 @@ Declarative macOS setup using [nix-darwin](https://github.com/LnL7/nix-darwin) a
 flake.nix                        # Entry point, defines all machines and dev shell
 lib/system/mk-darwin.nix         # Helper to wire nix-darwin + home-manager
 systems/<arch>/<hostname>/       # Per-machine system config (homebrew, macOS defaults)
-homes/<arch>/<user>@<hostname>/  # Per-machine home config (packages, imports)
+homes/<arch>/<user>@<hostname>/  # Per-machine home config (packages, imports, launchd agents)
 modules/home/                    # Shared home-manager modules
 .github/workflows/               # CI: flake check, formatting, weekly input updates
 ```
@@ -96,7 +118,7 @@ darwinConfigurations."<hostname>" = mkDarwin {
 sudo darwin-rebuild switch --flake .
 ```
 
-On subsequent changes, run the same command to apply updates.
+On subsequent changes, run the same command to apply updates (alias: `drb`).
 
 ### 5. Enable direnv
 
