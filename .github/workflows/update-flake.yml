@@ -24,8 +24,14 @@ jobs:
         with:
           use-flakehub: false
 
-      - name: Update flake lock
-        run: nix flake update
+      - name: Update public flake inputs
+        run: >
+          nix flake update
+          nixpkgs
+          nix-darwin
+          home-manager
+          git-hooks
+          claude-plugins-official
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
@@ -33,7 +39,8 @@ jobs:
           commit-message: "chore: update flake.lock"
           title: "chore: update flake inputs"
           body: |
-            Automated weekly update of flake.lock inputs.
+            Automated weekly update of public flake.lock inputs.
+            Private ITP inputs are skipped (no SSH keys in CI).
 
             Run `sudo darwin-rebuild switch --flake .` after merging to apply.
           branch: chore/update-flake-lock
