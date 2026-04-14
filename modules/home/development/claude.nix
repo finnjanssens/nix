@@ -79,7 +79,7 @@ in
       "/Users/finnjanssens/ITP/skills/engineering/daikin"
     ];
 
-    memory.text = ''
+    context = ''
       # Global CLAUDE.md
 
       ## About me
