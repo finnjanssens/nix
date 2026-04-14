@@ -76,6 +76,7 @@ in
       inputs.claude-plugin-itp-engineering
       inputs.claude-plugin-itp-engineering-backend
       inputs.claude-plugin-itp-engineering-daikin
+      "/Users/finnjanssens/ITP/skills/engineering/daikin"
     ];
 
     memory.text = ''
