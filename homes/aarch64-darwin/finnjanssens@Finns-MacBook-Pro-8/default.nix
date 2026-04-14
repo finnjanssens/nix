@@ -2,6 +2,7 @@
 {
   imports = [
     ../../../modules/home/development
+    ./launchd.nix
   ];
 
   home.stateVersion = "24.11";
@@ -18,31 +19,6 @@
     $DRY_RUN_CMD ${pkgs.desktoppr}/bin/desktoppr ${../../../assets/wallpaper.jpg}
   '';
 
-  # Daily Obsidian note tagger (runs at 21:00 local time)
-  launchd.agents.obsidian-tagger = {
-    enable = true;
-    config = {
-      ProgramArguments = [
-        "/etc/profiles/per-user/finnjanssens/bin/claude"
-        "--print"
-        "--permission-mode"
-        "acceptEdits"
-        "--max-budget-usd"
-        "0.50"
-        "Find all markdown files that are missing YAML frontmatter tags. For each untagged note, read its content and add appropriate tags following the rules in CLAUDE.md. Report a summary of what was tagged."
-      ];
-      WorkingDirectory = "/Users/finnjanssens/Personal/obsidian";
-      StartCalendarInterval = [
-        {
-          Hour = 21;
-          Minute = 0;
-        }
-      ];
-      StandardOutPath = "/tmp/obsidian-tagger.log";
-      StandardErrorPath = "/tmp/obsidian-tagger.err";
-    };
-  };
-
   # CLI on PATH via Home Manager profile (avoids relying on Homebrew/npm global paths)
   home.packages = [
     pkgs.nixfmt
@@ -55,5 +31,7 @@
     pkgs.nodejs
     pkgs.delta
     pkgs.nerd-fonts.jetbrains-mono
+    pkgs.cowsay
+    pkgs.ponysay
   ];
 }
