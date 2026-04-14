@@ -31,7 +31,5 @@
     pkgs.nodejs
     pkgs.delta
     pkgs.nerd-fonts.jetbrains-mono
-    pkgs.cowsay
-    pkgs.ponysay
   ];
 }
