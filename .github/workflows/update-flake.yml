@@ -5,9 +5,6 @@ on:
     - cron: "0 6 * * 1" # every Monday at 06:00 UTC
   workflow_dispatch:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 permissions:
   contents: write
   pull-requests: write
@@ -34,14 +31,23 @@ jobs:
           claude-plugins-official
 
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          commit-message: "chore: update flake.lock"
-          title: "chore: update flake inputs"
-          body: |
-            Automated weekly update of public flake.lock inputs.
-            Private ITP inputs are skipped (no SSH keys in CI).
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git checkout -b chore/update-flake-lock
+          git add flake.lock
+          git diff --staged --quiet && echo "No changes" && exit 0
+          git commit -m "chore: update flake.lock"
+          git push -f origin chore/update-flake-lock
+          if gh pr view chore/update-flake-lock --json state --jq '.state' 2>/dev/null | grep -q OPEN; then
+            echo "PR already exists"
+          else
+            gh pr create \
+              --title "chore: update flake inputs" \
+              --body "Automated weekly update of public flake.lock inputs.
+          Private ITP inputs are skipped (no SSH keys in CI).
 
-            Run `sudo darwin-rebuild switch --flake .` after merging to apply.
-          branch: chore/update-flake-lock
-          delete-branch: true
+          Run \`sudo darwin-rebuild switch --flake .\` after merging to apply." \
+              --base main \
+              --head chore/update-flake-lock
+          fi
