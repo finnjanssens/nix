@@ -1,0 +1,1 @@
+Find all markdown files that are missing YAML frontmatter tags. For each untagged note, read its content and add appropriate tags following the rules in CLAUDE.md. Report a summary of what was tagged.
