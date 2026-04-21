@@ -30,11 +30,18 @@ in
 
     context = builtins.readFile ../../../assets/claude-context.md;
 
+    skills = {
+      obsidian-vault = ./skills/obsidian-vault/SKILL.md;
+    };
+
     settings = {
       prefersReducedMotion = true;
       statusLine = {
         type = "command";
         command = "${starshipClaude}";
+      };
+      permissions = {
+        additionalDirectories = [ "~/Personal/obsidian" ];
       };
     };
   };

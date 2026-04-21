@@ -22,6 +22,19 @@
 - Avoid using dashes (--) in generated text, use commas or separate sentences instead
 - Avoid heavy use of emojis in Slack messages
 
+## Obsidian vault
+
+My Obsidian vault is at `~/Personal/obsidian/` (configured as an additional directory, always readable). Use it to look up meeting notes, refinement working documents, knowledge base entries, and personal notes. Structure:
+
+- `ITP/Daikin/Meetings/`: Daikin project meeting notes
+- `ITP/Daikin/Knowledge Base/`: domain knowledge, architecture decisions
+- `ITP/Daikin/Refinement/`: ticket breakdowns, refinement working documents
+- `ITP/Backend Practice/Meetings/`: backend practice meeting notes
+- `Personal/`: personal notes
+- `Tasks.md`: task tracking
+
+When I ask about meetings, decisions, refinements, or notes, search the vault with Glob and Grep before answering.
+
 ## Secrets
 
 - Never commit tokens or credentials
