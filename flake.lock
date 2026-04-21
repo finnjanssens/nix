@@ -3,11 +3,11 @@
     "claude-plugin-itp-engineering": {
       "flake": false,
       "locked": {
-        "lastModified": 1774968000,
-        "narHash": "sha256-+8C3aBQdY/DUdl74gMomhgWO82vUD7AQ0Fk/fIE2eEE=",
+        "lastModified": 1776424687,
+        "narHash": "sha256-k8HRD0bqboqBvQCdW4ZjyactRVd9lSPghjGuJAe3Yqo=",
         "ref": "refs/heads/main",
-        "rev": "8d017496f7c5bc71a2d8f5cfcbb364885c46b477",
-        "revCount": 18,
+        "rev": "0491c66353082ccd48b6ab05a4512296e80f6dfe",
+        "revCount": 28,
         "type": "git",
         "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/engineering.git"
       },
@@ -19,11 +19,11 @@
     "claude-plugin-itp-engineering-backend": {
       "flake": false,
       "locked": {
-        "lastModified": 1775739897,
-        "narHash": "sha256-SmSJkLFzH4/e7UfmSKme2R7myJxniFSl9Ad+4Q3zNHs=",
+        "lastModified": 1776258750,
+        "narHash": "sha256-Gb45i08pl+4QBIYH1EBIGK6gGP/8Dod5mYzOGRw+Cgg=",
         "ref": "refs/heads/main",
-        "rev": "72f8de733e4a1d36df8d3a3bc245a44765293335",
-        "revCount": 87,
+        "rev": "c5357faca589937b33170c4c693cc699f66e3308",
+        "revCount": 90,
         "type": "git",
         "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/backend.git"
       },
@@ -35,11 +35,11 @@
     "claude-plugin-itp-engineering-daikin": {
       "flake": false,
       "locked": {
-        "lastModified": 1776151839,
-        "narHash": "sha256-rvbmhuClz4neC7yRupo0qFVTkyDGDPaCJuJpBUnzgX0=",
+        "lastModified": 1776348472,
+        "narHash": "sha256-CCDCspcM+d30XP5qQlAZ8rnAjaKNy/S4bQztbbpkbGA=",
         "ref": "refs/heads/main",
-        "rev": "8d9a470f87b0382bf15c428519658581a8d9df37",
-        "revCount": 142,
+        "rev": "2fccb543187bfd72c74646e2542a791e1744dc98",
+        "revCount": 145,
         "type": "git",
         "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/daikin.git"
       },
@@ -51,11 +51,11 @@
     "claude-plugin-itp-general": {
       "flake": false,
       "locked": {
-        "lastModified": 1775824910,
-        "narHash": "sha256-rhF0Aofc/jIOmYy5CDIatG73+Vh3b6TFUAQvVkwYhWc=",
+        "lastModified": 1776355801,
+        "narHash": "sha256-RcYePmyFtRSJMNwZMy8urf0sHHCH6Y6aJ7gbi5udkWc=",
         "ref": "refs/heads/main",
-        "rev": "1717a38a777f23b52d9101890ea00eeee72f8c93",
-        "revCount": 28,
+        "rev": "7fa8e259d6081c28b56021c01e6ce6bd183474d8",
+        "revCount": 30,
         "type": "git",
         "url": "ssh://git@git.inthepocket.org/inthepocket/skills/general.git"
       },
@@ -67,11 +67,11 @@
     "claude-plugins-official": {
       "flake": false,
       "locked": {
-        "lastModified": 1776459805,
-        "narHash": "sha256-cAaazLUwLF/c09g2FlDmeC3ZQ/nzp4yTEOa+LTQk+rM=",
+        "lastModified": 1776718915,
+        "narHash": "sha256-WzemE/1QCDeVwcJS5iaQBFIUvLvACWmW3TCaF6JHNZQ=",
         "owner": "anthropics",
         "repo": "claude-plugins-official",
-        "rev": "bb7730114d873b91acd477e696066f217f882391",
+        "rev": "777db5c30b30fd1809cdc0ed26a6b2cec57628dd",
         "type": "github"
       },
       "original": {
@@ -146,11 +146,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776661682,
-        "narHash": "sha256-X32LTSDqUdVqMy85WYdRgyt0I75wc4Lhi9j+lrCDR8w=",
+        "lastModified": 1776721614,
+        "narHash": "sha256-zGuW7C4tsScib2560yE5VV6lY/MdRs30aU9cbg3RP+U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4bfce11ea820df0359f73736fd59c7e8f53641a6",
+        "rev": "c555a4a34a260493be5adb795c54e013c58f2d34",
         "type": "github"
       },
       "original": {
