@@ -20,6 +20,7 @@
     casks = [
       "aws-vault-binary"
       "bruno"
+      "claude"
       "ghostty"
       "arc"
       "obsidian"
