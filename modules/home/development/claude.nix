@@ -32,6 +32,8 @@ in
 
     skills = {
       obsidian-vault = ./skills/obsidian-vault/SKILL.md;
+      my-reviews = ./skills/my-reviews/SKILL.md;
+      tone-of-voice = ./skills/tone-of-voice/SKILL.md;
     };
 
     settings = {
