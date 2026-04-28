@@ -75,6 +75,24 @@
       tfp() { terraform plan -var-file="vars/$1/values.tfvars" "''${@:2}"; }
       tfa() { terraform apply -var-file="vars/$1/values.tfvars" "''${@:2}"; }
       tfd() { terraform destroy -var-file="vars/$1/values.tfvars" "''${@:2}"; }
+
+      # Git commit with Claude-generated message
+      gccc() {
+        local staged=$(git diff --staged)
+        if [[ -z "$staged" ]]; then
+          echo "No staged changes. Stage files first with git add."
+          return 1
+        fi
+        local msg=$(echo "$staged" | claude -p "Write a conventional commit message for this diff. Output ONLY the message, nothing else.")
+        echo "\nSuggested commit message:\n"
+        echo "$msg"
+        echo ""
+        read -q "confirm?Commit with this message? [y/N] "
+        echo
+        if [[ "$confirm" == "y" ]]; then
+          git commit -m "$msg"
+        fi
+      }
     '';
 
     shellAliases = {
