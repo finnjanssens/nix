@@ -35,6 +35,8 @@ My Obsidian vault is at `~/Personal/obsidian/` (configured as an additional dire
 
 When I ask about meetings, decisions, refinements, or notes, search the vault with Glob and Grep before answering.
 
+When you encounter knowledge worth preserving during our work (e.g. architecture decisions, non-obvious system behavior, debugging insights, domain concepts, API quirks, infrastructure details), proactively suggest adding it to the appropriate Knowledge Base folder in the Obsidian vault. Keep suggestions brief, e.g. "This would be worth capturing in `ITP/Daikin/Knowledge Base/`, want me to write it up?" Only suggest when the knowledge is non-trivial and not already documented.
+
 ## Secrets
 
 - Never commit tokens or credentials
