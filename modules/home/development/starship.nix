@@ -14,5 +14,6 @@
     cmd_duration.disabled = true;
     gcloud.disabled = true;
     aws.format = "on [$symbol$profile ]($style)";
+    nodejs.disabled = true;
   };
 }
