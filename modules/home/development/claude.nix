@@ -25,6 +25,7 @@ in
       inputs.claude-plugin-itp-engineering
       inputs.claude-plugin-itp-engineering-backend
       inputs.claude-plugin-itp-engineering-daikin
+      inputs.claude-plugin-itp-utils
       "/Users/finnjanssens/ITP/skills/engineering/daikin"
     ];
 

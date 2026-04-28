@@ -3,11 +3,11 @@
     "claude-plugin-itp-engineering": {
       "flake": false,
       "locked": {
-        "lastModified": 1776424687,
-        "narHash": "sha256-k8HRD0bqboqBvQCdW4ZjyactRVd9lSPghjGuJAe3Yqo=",
+        "lastModified": 1776936838,
+        "narHash": "sha256-kfiK16owW2hPIYcvYO1WZETuxWGAIRO3YCdB0aEK58I=",
         "ref": "refs/heads/main",
-        "rev": "0491c66353082ccd48b6ab05a4512296e80f6dfe",
-        "revCount": 28,
+        "rev": "a5333f61263894627c01030e569bbe56c9278fb4",
+        "revCount": 36,
         "type": "git",
         "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/engineering.git"
       },
@@ -19,11 +19,11 @@
     "claude-plugin-itp-engineering-backend": {
       "flake": false,
       "locked": {
-        "lastModified": 1776258750,
-        "narHash": "sha256-Gb45i08pl+4QBIYH1EBIGK6gGP/8Dod5mYzOGRw+Cgg=",
+        "lastModified": 1777302458,
+        "narHash": "sha256-T8sxwQoz+/EM5pCiGmDHaVPg97aMAwTGYOh30rW1Kuo=",
         "ref": "refs/heads/main",
-        "rev": "c5357faca589937b33170c4c693cc699f66e3308",
-        "revCount": 90,
+        "rev": "04bea7e38c4605ef8dfdad7e8dc7ffd9f8512540",
+        "revCount": 96,
         "type": "git",
         "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/backend.git"
       },
@@ -35,11 +35,11 @@
     "claude-plugin-itp-engineering-daikin": {
       "flake": false,
       "locked": {
-        "lastModified": 1776348472,
-        "narHash": "sha256-CCDCspcM+d30XP5qQlAZ8rnAjaKNy/S4bQztbbpkbGA=",
+        "lastModified": 1777299317,
+        "narHash": "sha256-kN5K2qWJe8AJoeW9DGaz8G5q3un4ZvAaSOdMS/+R3Eo=",
         "ref": "refs/heads/main",
-        "rev": "2fccb543187bfd72c74646e2542a791e1744dc98",
-        "revCount": 145,
+        "rev": "42eb74ee194ba350ea02070da7b5a9ff21f5a174",
+        "revCount": 163,
         "type": "git",
         "url": "ssh://git@git.inthepocket.org/inthepocket/skills/engineering/daikin.git"
       },
@@ -64,14 +64,30 @@
         "url": "ssh://git@git.inthepocket.org/inthepocket/skills/general.git"
       }
     },
+    "claude-plugin-itp-utils": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775549818,
+        "narHash": "sha256-ZS1jxmpkg6o5CbWh69WAey6wXJzMnw8VBfVuEEAuSdg=",
+        "ref": "refs/heads/main",
+        "rev": "cd0e9e73093224a1ece53002fc6edd2a3c35b18d",
+        "revCount": 24,
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/utils.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.inthepocket.org/inthepocket/skills/utils.git"
+      }
+    },
     "claude-plugins-official": {
       "flake": false,
       "locked": {
-        "lastModified": 1776718915,
-        "narHash": "sha256-WzemE/1QCDeVwcJS5iaQBFIUvLvACWmW3TCaF6JHNZQ=",
+        "lastModified": 1777354828,
+        "narHash": "sha256-1WRs4MatPqqupcShvh1m9AIbHU4ze95dyFaKI+FCHlM=",
         "owner": "anthropics",
         "repo": "claude-plugins-official",
-        "rev": "777db5c30b30fd1809cdc0ed26a6b2cec57628dd",
+        "rev": "c5837a2c23b6ae1d89d3ed8212db20984d41b6a1",
         "type": "github"
       },
       "original": {
@@ -105,11 +121,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775585728,
-        "narHash": "sha256-8Psjt+TWvE4thRKktJsXfR6PA/fWWsZ04DVaY6PUhr4=",
+        "lastModified": 1776796298,
+        "narHash": "sha256-PcRvlWayisPSjd0UcRQbhG8Oqw78AcPE6x872cPRHN8=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "580633fa3fe5fc0379905986543fd7495481913d",
+        "rev": "3cfd774b0a530725a077e17354fbdb87ea1c4aad",
         "type": "github"
       },
       "original": {
@@ -146,11 +162,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776721614,
-        "narHash": "sha256-zGuW7C4tsScib2560yE5VV6lY/MdRs30aU9cbg3RP+U=",
+        "lastModified": 1777349711,
+        "narHash": "sha256-PGKgo2dO6fK603QGI+DWXdKmS09pbJjjTxwRHdhkGZA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c555a4a34a260493be5adb795c54e013c58f2d34",
+        "rev": "c1140540536d483e2730320100f6835d62c94fdf",
         "type": "github"
       },
       "original": {
@@ -181,11 +197,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1776329215,
-        "narHash": "sha256-a8BYi3mzoJ/AcJP8UldOx8emoPRLeWqALZWu4ZvjPXw=",
+        "lastModified": 1776949667,
+        "narHash": "sha256-GMSVw35Q+294GlrTUKlx087E31z7KurReQ1YHSKp5iw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b86751bc4085f48661017fa226dee99fab6c651b",
+        "rev": "01fbdeef22b76df85ea168fbfe1bfd9e63681b30",
         "type": "github"
       },
       "original": {
@@ -201,6 +217,7 @@
         "claude-plugin-itp-engineering-backend": "claude-plugin-itp-engineering-backend",
         "claude-plugin-itp-engineering-daikin": "claude-plugin-itp-engineering-daikin",
         "claude-plugin-itp-general": "claude-plugin-itp-general",
+        "claude-plugin-itp-utils": "claude-plugin-itp-utils",
         "claude-plugins-official": "claude-plugins-official",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",

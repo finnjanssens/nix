@@ -39,6 +39,10 @@
       url = "git+ssh://git@git.inthepocket.org/inthepocket/skills/engineering/daikin.git";
       flake = false;
     };
+    claude-plugin-itp-utils = {
+      url = "git+ssh://git@git.inthepocket.org/inthepocket/skills/utils.git";
+      flake = false;
+    };
   };
 
   outputs =
