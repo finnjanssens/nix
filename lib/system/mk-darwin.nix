@@ -14,6 +14,16 @@
 nix-darwin.lib.darwinSystem {
   inherit system;
   modules = modules ++ [
+    {
+      nixpkgs.overlays = [
+        (_final: prev: {
+          # direnv's checkPhase intermittently hangs on macOS; skip it.
+          direnv = prev.direnv.overrideAttrs (_old: {
+            doCheck = false;
+          });
+        })
+      ];
+    }
     home-manager.darwinModules.home-manager
     {
       users.users.${username}.home = "/Users/${username}";
