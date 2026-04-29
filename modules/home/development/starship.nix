@@ -15,5 +15,6 @@
     gcloud.disabled = true;
     aws.format = "on [$symbol$profile ]($style)";
     nodejs.disabled = true;
+    git_commit.tag_disabled = false;
   };
 }
