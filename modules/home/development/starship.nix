@@ -1,4 +1,7 @@
-{ ... }:
+{ lib, ... }:
+let
+  shared = import ./starship-common.nix;
+in
 {
   programs.starship.enable = true;
 
@@ -6,9 +9,9 @@
     "nerd-font-symbols"
   ];
 
-  programs.starship.settings = {
+  programs.starship.settings = lib.recursiveUpdate shared {
     # Symbol overrides
-    aws.symbol = "  ";
+    aws.symbol = "  ";
 
     # Custom settings
     cmd_duration.disabled = true;
