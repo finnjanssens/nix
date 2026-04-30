@@ -19,6 +19,7 @@ Declarative macOS setup using [nix-darwin](https://github.com/LnL7/nix-darwin) a
 | docker | package | Docker CLI client |
 | eza | module | Modern ls replacement with git integration |
 | fzf | module | Fuzzy finder for files, history, and tab completion |
+| gh | package | GitHub CLI |
 | ghostty | cask | GPU-accelerated terminal emulator |
 | git | module | Version control with delta, aliases, and global ignores |
 | glab | package | GitLab CLI |
@@ -154,11 +155,12 @@ security add-generic-password -a "$USER" -s "context7" -w "$token" -U
 unset token
 ```
 
-### 8. Authenticate glab CLI
+### 8. Authenticate Git host CLIs
 
 ```sh
 glab auth login --hostname gitlab.com --token "$GITLAB_COM_PAT"
 glab auth login --hostname git.inthepocket.org --token "$GITLAB_ITP_PAT"
+gh auth login --hostname github.com --web
 ```
 
 ## Updating flake inputs

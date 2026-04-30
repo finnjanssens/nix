@@ -25,6 +25,7 @@
     pkgs.colima
     pkgs.docker-client
     pkgs.lazydocker
+    pkgs.gh
     pkgs.glab
     pkgs.awscli2
     pkgs.go
