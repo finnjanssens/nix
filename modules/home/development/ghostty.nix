@@ -9,7 +9,7 @@
     adjust-cell-height=1
 
     # theme
-    theme = Breeze
+    theme = Cobalt Next
 
     # background
     background-opacity = 0.8
